@@ -14,7 +14,9 @@ class App extends Component {
       redioValue:'(未選択)',
       msg3:'選択して下さい',
       sel1Value:'',
-      sel2Value:[]
+      sel2Value:[],
+      data:['first item.'],
+      inputValue2:'',
     };
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnClick  = this.handleOnClick.bind(this);
@@ -22,6 +24,9 @@ class App extends Component {
     this.handleOnChangeRb = this.handleOnChangeRb.bind(this);
     this.handleOnChangeSel1 = this.handleOnChangeSel1.bind(this);
     this.handleOnChangeSel2 = this.handleOnChangeSel2.bind(this);
+    this.handleOnChangeOl = this.handleOnChangeOl.bind(this);
+    this.handleAddItem = this.handleAddItem.bind(this);
+    this.handleRemoveItem = this.handleRemoveItem.bind(this);
   }
 
   handleOnClick(event) {
@@ -59,7 +64,30 @@ class App extends Component {
     this.sel2Value = values;
   }
 
+  handleOnChangeOl(event) {
+		this.inputValue2 = event.target.value;
+	}
+
+	handleAddItem() {
+		var newData = this.state.data.concat(this.inputValue2);
+		this.setState({data: newData});
+	}
+
+	handleRemoveItem(i) {
+		var arr = this.state.data;
+		arr.splice(i, 1);
+		this.setState({data: arr});
+	}
+
   render() {
+    var items = this.state.data.map(function(item, i) {
+			return (
+				<li key={'key_' + i} onClick={this.handleRemoveItem.bind(this, i)}>
+				{item}
+				</li>
+			);
+    }.bind(this));
+    
     return (
       <div className="App">
         <header className="App-header">
@@ -112,6 +140,13 @@ class App extends Component {
             <div>
               <input type="button" value="押して下さい。" onClick={this.handleOnClick} />
             </div>
+            <div>
+              <ol>{items}</ol>
+              <div>
+                <input type="text" onChange={this.handleOnChangeOl} />
+                <input type="button" value="Click" onClick={this.handleAddItem} />
+            </div>
+		        </div>
         </body>
       </div>
     );
