@@ -93,60 +93,60 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
-          <body className="App-body">
-            <div class="component">
-              <p>{this.state.msg}</p>
-              <input type="text" onChange={this.handleOnChange}/>
-            </div>
-            <div  class="component">
-              <p>{this.state.msg2}</p>
-              <div>
-                <input type="checkbox" onChange={this.handleOnChangeCb} id="ck1" />
-                <label htmlFor="ck1">チェックボックス</label>
-              </div>
-              <div>
-                <input type="radio" onChange={this.handleOnChangeRb} value="A" id="r1" name="radio" />
-                <label htmlFor="r1">ラジオボタンA</label>
-              </div>
-              <div>
-                <input type="radio" onChange={this.handleOnChangeRb} value="B" id="r2" name="radio" />
-                <label htmlFor="r2">ラジオボタンB</label>
-              </div>
-            </div>
-            <div  class="component">
-              <p>{this.state.msg3}</p>
-              <div>
-                <p>セレクトボックス</p>
-                <select onChange={this.handleOnChangeSel1}>
-                  <option>和食</option>
-                  <option>中華</option>
-                  <option>洋食</option>
-                </select>
-              </div>
-              <div>
-                <p>セレクトボックス(複数)</p>
-                <select multiple size="5" onChange={this.handleOnChangeSel2}>
-                  <option>秋刀魚定食</option>
-                  <option>すき焼き</option>
-                  <option>おでん</option>
-                  <option>ラーメン</option>
-                  <option>チャーシューメン</option>
-                  <option>タンタン麺</option>
-                  <option>チキンライス</option>
-                  <option>オムライス</option>
-                </select>
-              </div>
+        <body className="App-body">
+          <div class="component">
+            <p>{this.state.msg}</p>
+            <input type="text" onChange={this.handleOnChange}/>
+          </div>
+          <div  class="component">
+            <p>{this.state.msg2}</p>
+            <div>
+              <input type="checkbox" onChange={this.handleOnChangeCb} id="ck1" />
+              <label htmlFor="ck1">チェックボックス</label>
             </div>
             <div>
-              <input type="button" value="押して下さい。" onClick={this.handleOnClick} />
+              <input type="radio" onChange={this.handleOnChangeRb} value="A" id="r1" name="radio" />
+              <label htmlFor="r1">ラジオボタンA</label>
             </div>
             <div>
-              <ol>{items}</ol>
-              <div>
-                <input type="text" onChange={this.handleOnChangeOl} />
-                <input type="button" value="Click" onClick={this.handleAddItem} />
+              <input type="radio" onChange={this.handleOnChangeRb} value="B" id="r2" name="radio" />
+              <label htmlFor="r2">ラジオボタンB</label>
             </div>
-		        </div>
+          </div>
+          <div  class="component">
+            <p>{this.state.msg3}</p>
+            <div>
+              <p>セレクトボックス</p>
+              <select onChange={this.handleOnChangeSel1}>
+                <option>和食</option>
+                <option>中華</option>
+                <option>洋食</option>
+              </select>
+            </div>
+            <div>
+              <p>セレクトボックス(複数)</p>
+              <select multiple size="5" onChange={this.handleOnChangeSel2}>
+                <option>秋刀魚定食</option>
+                <option>すき焼き</option>
+                <option>おでん</option>
+                <option>ラーメン</option>
+                <option>チャーシューメン</option>
+                <option>タンタン麺</option>
+                <option>チキンライス</option>
+                <option>オムライス</option>
+              </select>
+            </div>
+          </div>
+          <div class="component">
+            <ol>{items}</ol>
+            <div>
+              <input type="text" onChange={this.handleOnChangeOl} />
+              <input type="button" value="Click" onClick={this.handleAddItem} />
+            </div>
+            <div>
+              <input type="button" value="押して下さい。" class="button" onClick={this.handleOnClick} />
+            </div>
+          </div>
         </body>
       </div>
     );
