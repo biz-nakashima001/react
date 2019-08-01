@@ -30,9 +30,13 @@ class App extends Component {
   }
 
   handleOnClick(event) {
+    //名前の入力有無
+    if(this.inputValue == null){
+      this.inputValue = '名無し';
+    }
     this.setState({
       msg:'こんにちは, '+ this.inputValue + 'さん。',
-      msg2:'選択状態:' + this.checkValue + ','+ this.radioValue,
+      msg2:'選択状態:' +this.checkValue + ','+ this.radioValue,
       msg3:'状態:' + this.sel1Value + '[' + this.sel2Value + ']'
     });
   }
@@ -94,6 +98,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <body className="App-body">
+          <div>
+            <input type="button" value="押して下さい。" class="button" onClick={this.handleOnClick} />
+          </div>
           <div class="component">
             <p>{this.state.msg}</p>
             <input type="text" onChange={this.handleOnChange}/>
@@ -118,6 +125,7 @@ class App extends Component {
             <div>
               <p>セレクトボックス</p>
               <select onChange={this.handleOnChangeSel1}>
+                <option selected>-</option>
                 <option>和食</option>
                 <option>中華</option>
                 <option>洋食</option>
@@ -126,6 +134,7 @@ class App extends Component {
             <div>
               <p>セレクトボックス(複数)</p>
               <select multiple size="5" onChange={this.handleOnChangeSel2}>
+                <option selected>-</option>
                 <option>秋刀魚定食</option>
                 <option>すき焼き</option>
                 <option>おでん</option>
